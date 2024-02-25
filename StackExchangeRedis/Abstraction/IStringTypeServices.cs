@@ -7,5 +7,6 @@ namespace StackExchangeRedis.Abstraction
         Task Add(StringTypeDTO stringTypeDTO);
         Task<string> GetCacheById(string id);
         Task<string> Example();
+        Task<bool> Delete(string id);
     }
 }

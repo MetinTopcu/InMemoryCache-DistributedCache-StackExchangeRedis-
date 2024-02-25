@@ -27,6 +27,14 @@ namespace StackExchangeRedis.Controllers
 
             return Ok(value.ToString());
         }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(string id)
+        {
+            var status = await _stringTypeServices.Delete(id);
+
+            return Ok(status);
+        }
+
         [HttpGet]
         public async Task<IActionResult> DbMethodsUsing()
         {

@@ -41,6 +41,15 @@ namespace StackExchangeRedis.AppServices
             return "Not Found";
         }
 
+        public async Task<bool> Delete(string id)
+        {
+            var db = _redisService.GetDb(1);
+
+            var status = await db.KeyDeleteAsync(id);
+
+            return status ? true : false;
+        }
+
         public async Task<string> Example()
         {
             var db = _redisService.GetDb(1);
