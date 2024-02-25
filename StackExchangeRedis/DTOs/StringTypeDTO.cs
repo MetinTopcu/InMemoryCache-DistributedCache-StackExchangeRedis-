@@ -1,8 +1,9 @@
 ﻿namespace StackExchangeRedis.DTOs
 {
-    public interface StringTypeDTO
+    public class StringTypeDTO
     {
-        public string Name { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
         public int Number { get; set; }
     }
 }

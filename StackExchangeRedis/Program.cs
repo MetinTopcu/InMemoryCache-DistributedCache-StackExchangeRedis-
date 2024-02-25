@@ -1,5 +1,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
+using StackExchangeRedis.Abstraction;
+using StackExchangeRedis.AppServices;
 using StackExchangeRedis.Services;
 using StackExchangeRedis.Settings;
 
@@ -8,6 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.Configure<RedisSettings>(builder.Configuration.GetSection("RedisSettings"));
+
+builder.Services.AddScoped<IStringTypeServices, StringTypeServices>();
 
 builder.Services.AddSingleton<RedisServices>(sp =>
 {
